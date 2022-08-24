@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
     private lateinit var teamAScore: TextView
@@ -14,8 +15,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var enterTeamBScore: EditText
     private lateinit var addButton: Button
 
-    private var aScore = 0
-    private var bScore = 0
+    private var aScore = ""
+    private var bScore = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +30,29 @@ class MainActivity : AppCompatActivity() {
 
         addButton.setOnClickListener{
 //            Toast.makeText(this, "Add Score Was Clicked", Toast.LENGTH_LONG).show()
-            aScore = enterTeamAScore.text.toString().toInt()
-            bScore = enterTeamBScore.text.toString().toInt()
+            aScore = enterTeamAScore.text.toString()
+            bScore = enterTeamBScore.text.toString()
 
-            teamAScore.text = "Team A: $aScore"
-            teamBScore.text = "Team B: $bScore"
+            if(aScore.isNullOrEmpty()){
+                Toast.makeText(this, "Enter A Valid Number", Toast.LENGTH_LONG).show()
+            }else if(bScore.isNullOrEmpty()){
+                Toast.makeText(this, "Enter A Valid Number", Toast.LENGTH_LONG).show()
+            }else {
+                teamAScore.text = "Team A: $aScore"
+                teamBScore.text = "Team B: $bScore"
+
+                var msg = if(aScore.toInt() > bScore.toInt()){
+                    "Team A is the Winner"
+                }else{
+                    "Team B is the Winner"
+                }
+
+                val alertDialog = AlertDialog.Builder(this)
+                alertDialog.setMessage(msg)
+                    .setTitle("Who is the winner?")
+                    .setPositiveButton("Ok",null)
+                    .show()
+            }
         }
     }
 }

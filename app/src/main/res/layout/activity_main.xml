@@ -12,21 +12,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="100dp">
 
         <TextView
             android:id="@+id/teamAScore"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="53dp"
+            android:layout_marginRight="5dp"
             android:text="Team A: 0"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textColor="#000000"/>
 
         <TextView
             android:id="@+id/teamBScore"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="53dp"
+            android:layout_marginLeft="5dp"
             android:text="Team B: 0"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textColor="#000000"/>
     </LinearLayout>
 
     <EditText
@@ -34,6 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Team A score"
+        android:layout_margin="5dp"
         android:inputType="number" />
 
     <EditText
@@ -41,11 +47,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Team B score"
+        android:layout_margin="5dp"
         android:inputType="number" />
 
     <Button
         android:id="@+id/addScoreBtn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
         android:text="Add Score" />
 </LinearLayout>
