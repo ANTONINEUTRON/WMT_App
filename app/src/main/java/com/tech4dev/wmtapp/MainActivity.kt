@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         teamBScore = findViewById(R.id.teamBScore)
 
         addButton.setOnClickListener{
-//            Toast.makeText(this, "Add Score Was Clicked", Toast.LENGTH_LONG).show()
             aScore = enterTeamAScore.text.toString()
             bScore = enterTeamBScore.text.toString()
 
@@ -38,21 +37,28 @@ class MainActivity : AppCompatActivity() {
             }else if(bScore.isNullOrEmpty()){
                 Toast.makeText(this, "Enter A Valid Number", Toast.LENGTH_LONG).show()
             }else {
-                teamAScore.text = "Team A: $aScore"
-                teamBScore.text = "Team B: $bScore"
-
-                var msg = if(aScore.toInt() > bScore.toInt()){
-                    "Team A is the Winner"
-                }else{
-                    "Team B is the Winner"
-                }
-
-                val alertDialog = AlertDialog.Builder(this)
-                alertDialog.setMessage(msg)
-                    .setTitle("Who is the winner?")
-                    .setPositiveButton("Ok",null)
-                    .show()
+                updateScoreboard()
+                showWinnerPopup()
             }
         }
+    }
+
+    private fun updateScoreboard() {
+        teamAScore.text = "Team A: $aScore"
+        teamBScore.text = "Team B: $bScore"
+    }
+
+    private fun showWinnerPopup() {
+        var msg = if (aScore.toInt() > bScore.toInt()) {
+            "Team A is the Winner"
+        } else {
+            "Team B is the Winner"
+        }
+
+        val alertDialog = AlertDialog.Builder(this)
+        alertDialog.setMessage(msg)
+            .setTitle("Who is the winner?")
+            .setPositiveButton("Ok", null)
+            .show()
     }
 }
