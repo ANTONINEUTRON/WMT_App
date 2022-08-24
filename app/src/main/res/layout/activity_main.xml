@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/teamAScore"
+            android:layout_width="100dp"
+            android:layout_height="53dp"
+            android:text="Team A: 0"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/teamBScore"
+            android:layout_width="100dp"
+            android:layout_height="53dp"
+            android:text="Team B: 0"
+            android:textSize="18dp" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/enterTeamAScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Team A score"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/enterTeamBScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Team B score"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/addScoreBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Score" />
+</LinearLayout>
