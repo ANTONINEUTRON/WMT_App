@@ -49,10 +49,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showWinnerPopup() {
-        var msg = if (aScore.toInt() > bScore.toInt()) {
-            "Team A is the Winner"
-        } else {
-            "Team B is the Winner"
+        var msg = ""
+        if (aScore.toInt() > bScore.toInt()) {
+            msg = "Team A is the Winner"
+        }else if(aScore.toInt() == bScore.toInt()){
+            msg = "It is a tie"
+        }else {
+            msg = "Team B is the Winner"
         }
 
         val alertDialog = AlertDialog.Builder(this)
